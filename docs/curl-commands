@@ -1,0 +1,37 @@
+#add new word
+curl -i -H "Content-type: application/json" -X POST -d '{
+      "word" : "myFirstWord"
+  }' localhost:8080/words/add
+
+  curl -i -H "Content-type: application/json" -X POST -d '{
+        "word" : "mySecondWord"
+    }' localhost:8080/words/add
+
+
+#list all words
+curl -i -H "Content-type: application/json" -X GET localhost:8080/words
+
+#delete a word by ID
+curl -i -H "Content-type: application/json" -X DELETE localhost:8080/words/delete/2
+
+#change a word by ID
+
+curl -i -H "Content-type: application/json" -X POST -d '{
+        "word" : "Changed word"
+    }' localhost:8080/words/edit/4
+
+#find a word
+
+curl -i -H "Content-type: application/json" -X GET -d '{
+    "word" : "myFirstWord"
+    }' localhost:8080/words/find
+
+  #add words for palindrome check
+  curl -i -H "Content-type: application/json" -X POST -d '{
+        "word" : "ada"
+    }' localhost:8080/words/add
+
+ #list all palindromes
+ curl -i -H "Content-type: application/json" -X GET localhost:8080/words/palindrome
+
+
